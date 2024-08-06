@@ -2,13 +2,13 @@ from fastapi import FastAPI
 import uvicorn
 from dotenv import load_dotenv
 import os
-from app.routes import auth, hospital
+from app.routes import auth, check
 
 fastAPI = FastAPI()
 load_dotenv()
 
 fastAPI.include_router(auth.router, prefix="/api/auth", tags=["auth"])
-fastAPI.include_router(hospital.router, prefix="/api/hospital", tags=["hospital"])
+fastAPI.include_router(check.router, prefix="/api/check", tags=["check"])
 
 port = os.getenv('PORT')
 
